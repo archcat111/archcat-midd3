@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.cat.midd</groupId>
+		<artifactId>midd-gateway3</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>midd-gateway3-springcloud-impl</artifactId>
+	<packaging>jar</packaging>
+	
+	<developers>
+		<developer>
+			<name>wangyunlong</name>
+			<email>139642011@qq.com</email>
+		</developer>
+	</developers>
+	
+	<description>org.cat框架v3.0下用于以springcloud为基础提供Springcloud Gateway的实现</description>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+	  			<groupId>pl.project13.maven</groupId>
+			    <artifactId>git-commit-id-plugin</artifactId>
+	  		</plugin>
+		</plugins>
+	</build>
+	
+	<dependencies>
+		<!-- business -->
+		<!-- <dependency>
+			<groupId>org.cat.app</groupId>
+			<artifactId>app-user3-client</artifactId>
+		</dependency> -->
+		
+		<!-- core -->
+		<dependency>
+			<groupId>org.cat.core</groupId>
+			<artifactId>core-util3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.core</groupId>
+			<artifactId>core-exception3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.core</groupId>
+			<artifactId>core-web3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.core</groupId>
+			<artifactId>core-web3-log</artifactId>
+		</dependency>
+		
+		<!-- support -->
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-db3-generator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-id3-generator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-exception3-generator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-web3-generator</artifactId>
+		</dependency>
+		<!-- <dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-log3-generator</artifactId>
+		</dependency> -->
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-security3-generator-session</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>redis.clients</groupId>
+					<artifactId>jedis</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency><!-- 会引入lettuce，jedis不支持reactive -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+        </dependency>
+        
+		<!-- support-springboot3 optional -->
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-springboot3-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-springboot3-actuator</artifactId>
+		</dependency>
+		<!-- support-springcloud3 -->
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-springcloud3-nacos</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-springcloud3-gateway</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-springcloud3-starter</artifactId>
+		</dependency>
+		
+		<!-- Spring Boot -->
+		
+		<!-- Spring Cloud -->
+		<dependency>
+	     	<groupId>com.alibaba.cloud</groupId>
+	     	<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+	     	<exclusions>
+	            <exclusion>
+	                <groupId>org.springframework.cloud</groupId>
+	                <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+	            </exclusion>
+	        </exclusions>
+	 	</dependency>
+	 	<dependency>
+		    <groupId>com.alibaba.cloud</groupId>
+		    <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+      		<artifactId>spring-cloud-starter-loadbalancer</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-gateway</artifactId>
+		</dependency>
+		<dependency>
+	        <groupId>org.springframework.cloud</groupId>
+	        <artifactId>spring-cloud-gateway-webflux</artifactId>
+	    </dependency>
+		<!-- <dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-gateway-mvc</artifactId>
+		</dependency> -->
+		
+		
+		<!-- SpringCloud Gateway相关功能支持 -->
+		<dependency>
+			<groupId>org.isomorphism</groupId>
+			<artifactId>token-bucket</artifactId>
+		</dependency>
+		
+		
+	</dependencies>
+</project>

@@ -1,0 +1,77 @@
+server:
+   port: 7002
+spring:
+   application:
+      company: home-arch
+      platform: arch-midd
+      name: "@project.name@"
+      code: 10001
+   autoconfigure:
+      exclude:
+         - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+   cloud:
+      nacos:
+         username: app
+         password: app
+         discovery:
+            enabled: true
+            serverAddr: nacos1.archcat.midd:8848,nacos2.archcat.midd:8848,nacos3.archcat.midd:8848
+            namespace: 800a8ae0-2ec7-4dff-be70-3d15754b27bc
+            service: ${spring.application.name:unknown-app}
+            group: ${spring.application.platform}
+            clusterName: home
+            registerEnabled: true
+         config:   #${prefix}-${spring.profiles.active}.${file-extension}
+            enabled: true
+            serverAddr: nacos1.archcat.midd:8848,nacos2.archcat.midd:8848,nacos3.archcat.midd:8848
+            namespace: 800a8ae0-2ec7-4dff-be70-3d15754b27bc
+            group: ${spring.application.platform}
+            prefix: ${spring.application.name:unknown-app}
+            fileExtension: yaml
+            sharedConfigs[0]: 
+               group: common
+               dataId: common-web.yaml
+               refresh: true
+            sharedConfigs[1]: 
+               group: common
+               dataId: common-monitor.yaml
+               refresh: true   
+    
+---
+
+spring:
+   config:
+      activate:
+         onProfile: alpha
+   cloud:
+      nacos:
+         discovery:
+            namespace: 800a8ae0-2ec7-4dff-be70-3d15754b27bc
+         config:
+            namespace: 800a8ae0-2ec7-4dff-be70-3d15754b27bc
+         
+---
+
+spring:
+   config:
+      activate:
+         onProfile: uat
+   cloud:
+      nacos:
+         discovery:
+            namespace: c7cec66b-2bdb-419d-b0e8-d8d5606c5ace
+         config:
+            namespace: c7cec66b-2bdb-419d-b0e8-d8d5606c5ace
+   
+--- 
+   
+spring:
+   config:
+      activate:
+         onProfile: prod
+   cloud:
+      nacos:
+         discovery:
+            namespace: a5492b77-ff78-4b40-bf6c-bf9e13ad00de
+         config:
+            namespace: a5492b77-ff78-4b40-bf6c-bf9e13ad00de

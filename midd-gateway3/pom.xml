@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>org.cat.support</groupId>
+	<artifactId>support-springcloud3</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+  </parent>
+  
+  <groupId>org.cat.midd</groupId>
+  <artifactId>midd-gateway3</artifactId>
+  <packaging>pom</packaging>
+  
+  <description>基于SpringCloud提供Gateway的支持，以及大量自定义的相关扩展</description>
+  
+  <modules>
+  	<module>midd-gateway3-springcloud-impl</module>
+  </modules>
+  
+	<properties>
+		<midd-gateway3-springcloud-impl.version>1.0.0-SNAPSHOT</midd-gateway3-springcloud-impl.version>
+		<!-- core -->
+
+		<!-- support -->
+		
+		<!-- business -->
+		<app-user3.version>1.0.0-SNAPSHOT</app-user3.version>
+		
+		<!-- SpringCloud Gateway相关功能支持 -->
+		<token-bucket.version>1.7</token-bucket.version>
+
+	</properties>
+	
+  <dependencyManagement>
+  	<dependencies>
+  		<!-- 自己 -->
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>midd-gateway3-springcloud-impl</artifactId>
+			<version>${midd-gateway3-springcloud-impl.version}</version>
+		</dependency>
+		<!-- business -->
+		<dependency>
+			<groupId>org.cat.app</groupId>
+			<artifactId>app-user3</artifactId>
+			<version>${app-user3.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+		
+       <!-- support -->
+       
+       
+       
+       <!-- SpringCloud Gateway相关功能支持 -->
+       	<dependency><!-- 限流 - 令牌桶算法 -->
+			<groupId>org.isomorphism</groupId>
+			<artifactId>token-bucket</artifactId>
+			<version>${token-bucket.version}</version>
+		</dependency>
+  	</dependencies>
+  	
+  </dependencyManagement>
+  
+</project>

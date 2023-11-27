@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.cat.midd</groupId>
+    <artifactId>midd-file3</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>midd-file3-impl</artifactId>
+  <description>中间件 - 文件服务 - 实现</description>
+  
+  <developers>
+		<developer>
+			<name>wangyunlong</name>
+			<email>139642011@qq.com</email>
+		</developer>
+	</developers>
+  
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-maven-plugin</artifactId>
+  		</plugin>
+  		<plugin>
+  			<groupId>pl.project13.maven</groupId>
+		    <artifactId>git-commit-id-plugin</artifactId>
+  		</plugin>
+  	</plugins>
+  </build>
+  
+  <dependencies>
+  	<!-- 自己 -->
+ 	<dependency>
+		<groupId>org.cat.midd</groupId>
+		<artifactId>midd-file3-client</artifactId>
+	</dependency>
+	<!-- business -->
+	<dependency>
+		<groupId>org.cat.app</groupId>
+		<artifactId>app-user3-client</artifactId>
+	</dependency>
+  	
+  	<!-- core -->
+	<dependency>
+		<groupId>org.cat.core</groupId>
+		<artifactId>core-util3</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.cat.core</groupId>
+		<artifactId>core-exception3</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.cat.core</groupId>
+		<artifactId>core-web3</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.cat.core</groupId>
+		<artifactId>core-web3-log</artifactId>
+	</dependency>
+	
+	<!-- support -->
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-id3-generator</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-exception3-generator</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-log3-generator</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-db3-generator</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-web3-generator</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-storage3-generator</artifactId>
+	</dependency>
+	
+	<!-- support - springboot -->
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-springboot3-starter</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-springboot3-actuator</artifactId>
+	</dependency>
+	<!-- support - springcloud -->
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-springcloud3-starter</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-springcloud3-web</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-springcloud3-nacos</artifactId>
+	</dependency>
+	
+	<!-- springboot -->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-web</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-validation</artifactId>
+	</dependency>
+	
+	<!-- springcloud -->
+	<dependency>
+     	<groupId>com.alibaba.cloud</groupId>
+     	<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+     	<exclusions>
+            <exclusion>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+            </exclusion>
+        </exclusions>
+ 	</dependency>
+ 	<dependency>
+	    <groupId>com.alibaba.cloud</groupId>
+	    <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+	</dependency>
+	<!-- <dependency>
+	    <groupId>com.alibaba.cloud</groupId>
+	    <artifactId>spring-cloud-starter-dubbo</artifactId>
+	</dependency> -->
+	
+	<!-- swagger3 -->
+	<dependency>
+	   <groupId>io.springfox</groupId>
+	   <artifactId>springfox-boot-starter</artifactId>
+	</dependency>
+	
+	<dependency>
+		<groupId>io.minio</groupId>
+		<artifactId>minio</artifactId>
+	</dependency>
+	
+	<dependency>
+    	<groupId>com.squareup.okhttp3</groupId>
+    	<artifactId>okhttp</artifactId>
+    </dependency>
+	
+	
+  </dependencies>
+</project>
